@@ -1,0 +1,24 @@
+html
+  head
+    title Home
+body
+  include ../partials/header_in
+  br
+  |Username: #{username}
+  br
+  | Restaurant Name: #{data.restaurantName}
+  br
+  br
+  |Items:
+  br
+  each item in data.order
+    | #{item.name} : #{item.quantity}
+    br
+  br
+  |Subtotal: $#{data.subtotal}
+  br
+  |Tax: $#{data.tax}
+  br
+  |Delivery Fee: $#{data.fee}
+  br
+  |Total: $#{data.total}

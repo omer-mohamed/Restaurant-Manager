@@ -1,0 +1,17 @@
+html
+  head
+    title Users
+body
+  if loginFlag
+    include ../partials/header_in
+    br
+  else
+    include ../partials/header_out
+    br
+
+  if users.length > 0
+    each user in users
+      a(href="/users/" + user["_id"])= user.username
+      br
+  else
+    p There are currently no users stored in the database.
