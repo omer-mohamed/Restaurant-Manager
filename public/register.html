@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration</title>
+  </head>
+  <a href ="/">Home</a>
+  <a href ="/users">Users</a>
+  <a href ="/order">Order</a>
+  <a href ="/login">Login</a>
+  <br>
+  <body>
+    Username: <input type="text" id="username" required><br>
+    Password: <input type="password" id="password" required><br>
+    <button onclick="sendUser()">Register</button>
+  </body>
+
+<script>
+  function sendUser(){
+    let u = {
+      "username":document.getElementById("username").value,
+      "password":document.getElementById("password").value
+    };
+    const xml = new XMLHttpRequest();
+    xml.open("POST","/register");
+    xml.setRequestHeader("Content-Type","application/json");
+
+    xml.onreadystatechange = function(){
+      if(xml.readyState == 4 && xml.status == 401 ){
+        alert("This username already exists in the database.");
+      }
+      else if(xml.readyState == 4 && xml.status == 200){
+        window.location.href = xml.response;
+      }
+    }
+    xml.send(JSON.stringify(u));
+  }
+</script>
+</html>

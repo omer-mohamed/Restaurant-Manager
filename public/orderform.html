@@ -1,0 +1,43 @@
+
+<html>
+	<head>
+		<title>Order Form</title>
+		<style>
+			.column {
+				float: left;
+			}
+
+			.left{
+				width: 10%;
+			}
+
+			.right {
+				width: 25%;
+			}
+
+			.middle {
+				width: 65%;
+			}
+		</style>
+		<a href ="/">Home</a>
+		<a href ="/users">Users</a>
+		<a href ="/order">Order</a>
+		<a href ="/profile">Profile</a>
+		<a href ="/logout">Logout</a>
+		<br></br>
+	</head>
+
+	<body onload="init()">
+		<select id="restaurant-select"></select>
+		<br><br>
+		<div id="info"></div>
+		<div id="main">
+			<div class="column left" id="left"></div>
+			<div class="column middle" id="middle"></div>
+			<div class="column right" id="right"></div>
+		</div>
+
+		<script src="orderform.js"></script>
+	</body>
+
+</html>
